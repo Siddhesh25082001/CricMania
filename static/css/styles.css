@@ -1,0 +1,163 @@
+/* ------------------------------- This is styling for 'index.html' --------------------------------------- */
+
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: Helvetica, Arial, sans-serif;
+    }
+
+    /* ------------------------------ Header -> Navigation --------------------------------------- */
+
+    header{
+        background-color: #24252A;
+    }
+
+    li, a, button{
+        font-size: 16px;
+        color: #edf0f1;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 10px;
+    }
+
+    h1{
+        color:rgba(76, 229, 240, 0.918);
+        margin-left: 20px;
+        cursor: pointer;
+        letter-spacing: .5px;
+    }
+
+    span{
+        color: #edf0f1;
+    }
+
+    .nav_link{
+        list-style: none;
+    }
+
+    .nav_link, li{
+        display: inline-block;
+        padding: 0px 20px;
+        letter-spacing: 1px;
+    }
+
+    .nav_link, li, a{
+        transition: all 0.3 sec ease-in 0s;
+    }
+
+    .nav_link, li, a:hover{
+        color: #7fe266;
+    }
+
+    button{
+        padding: 9px 25px;
+        background-color: rgba(0, 136, 169, 1);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.3 sec ease-in 0s;
+    }
+
+    button:hover{
+        background-color: rgba(0, 136, 169, 0.8);
+    }
+
+    /* ------------------------------ Main -> Live Score --------------------------------------- */
+
+    h3{
+        font-size: 25px;
+        font-weight: bold;
+        margin: 25px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .slider
+    {
+        max-width: 1310px;
+        background-color: rgba(233, 227, 227, 0.74);
+        display: flex;
+        padding: 30px 25px;
+        margin: 20px 25px 20px 25px;
+    }
+
+    .slider .card
+    {
+        flex: 1;
+        margin: 0 10px;
+        background: #fff;
+    }
+
+    .slider .card .img
+    {
+        height: 200px;
+        width: 100%;
+    }
+
+    .slider .card .img img
+    {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .slider .card .content
+    {
+        padding: 10px 20px;
+    }
+
+    .card .content .title
+    {
+        font-size: 25px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .card .content .sub-title
+    {
+        font-size: 20px;
+        font-weight: 600;
+        color: #e74c3c;
+        line-height: 20px;
+        text-align: center;
+    }
+
+    .card .content p
+    {
+        text-align: justify;
+        margin: 10px 0;
+    }
+
+    .card .content .btn
+    {
+        display: block;
+        text-align: left;
+        margin: 10px 0;
+    }
+
+    .card .content .btn button
+    {
+        background: #e74c3c;
+        color: #fff;
+        border: none;
+        outline: none;
+        font-size: 17px;
+        padding: 5px 8px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .card .content .btn button:hover
+    {
+        transform: scale(0.9);
+    }

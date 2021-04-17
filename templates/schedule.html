@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Schedule</title>
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;;
+        }
+        
+        header
+        {
+            background-color: #24252A;
+        }
+
+        li, a, button
+        {
+            font-size: 16px;
+            color: #edf0f1;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        header
+        {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 10px;
+        }
+
+        h1
+        {
+            color:rgba(76, 229, 240, 0.918);
+            margin-left: 20px;
+            cursor: pointer;
+            letter-spacing: .5px;
+        }
+
+        span
+        {
+            color: #edf0f1;
+        }
+
+        .nav_link
+        {
+            list-style: none;
+        }
+
+        .nav_link, li
+        {
+            display: inline-block;
+            padding: 0px 20px;
+            letter-spacing: 1px;
+        }
+
+        .nav_link, li, a
+        {
+            transition: all 0.3 sec ease-in 0s;
+        }
+
+        .nav_link, li, a:hover
+        {
+            color: #7fe266;
+        }
+
+        button
+        {
+            padding: 9px 25px;
+            background-color: rgba(0, 136, 169, 1);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3 sec ease-in 0s;
+        }
+
+        button:hover
+        {
+            background-color: rgba(0, 136, 169, 0.8);
+        }
+
+        h2{
+                text-align: center;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: 25px;
+                font-weight: bold;
+                padding-top: 15px; 
+                padding-bottom: 5px;
+        }
+
+        .left{
+            width: 30%;
+            float: left;
+        }
+
+        .right{
+            width: 720px;
+            float: right; 
+        }
+
+        img{
+            height: 300px;
+        }
+
+        .details
+        {
+            font-size: 15px;
+            font-weight: bold;
+            color: crimson;
+            letter-spacing: 2px;
+        }
+
+        thead{
+                background-color: #16a085;
+                color: #fff;
+                font-size: 15px;
+                text-align: center;
+        }
+
+        tr{
+                transition: all .2s ease-in;
+                cursor: pointer;
+                font-size: 15px;
+        }
+
+        .data:hover{
+                background-color: #f5f5f5;
+                transform: scale(1.02);
+                box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+                text-decoration: none;
+                cursor: pointer;
+        }
+
+        .in{
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            margin-top: 25px;
+            margin-right: 20px;
+        }
+
+        .image{
+            width: 180px;
+            height: 180px;
+            border-radius: 200px;
+            border: 6px solid crimson;
+            object-fit: contain;
+        }
+
+        .no-name{
+            height: 380px;
+        }
+
+        p{
+            text-align: center;
+            font-weight: bold;
+            padding: 10px;
+            letter-spacing: 2px;
+        }
+
+        .creator
+        {
+            width: 100%;
+            text-align: center;
+            background-color: rgb(240, 217, 217);
+        }
+
+        .foot-creators
+        {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        h4{
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    <!-- Navigation Bar -->
+    <header id='header'> 
+        <h1> 🏏 Cric<span>Mania</span></h1>
+        <nav>
+            <ul class="nav-link">
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Live Score</a></li>
+                <li><a href="/">Schedule</a></li>
+                <li><a href="{{ url_for('batting') }}">Rankings</a></li>
+            </ul>
+        </nav>
+        <a class="About-us" href="#"><button>Contact Us</button></a>
+    </header>
+
+    <!--  Description Div -->
+    <div class='no-name'>
+
+        <div class="left">
+            <img src="/static/images/schedule.png" alt="">
+        </div>
+
+        <div class="right">
+            <h2>Detailed Schedule</h2>
+            <div class="in">
+                <img class='image' src="/static/images/calendar.png" alt="">
+                <p>Mark the events on your calendar</p>
+            </div>
+            <div class="in">
+                <img class='image' src="/static/images/update.png" alt="">
+                <p>Stay Updates at every second</p>
+            </div>
+            <div class="in">
+                <img class='image' src="/static/images/detail.png" alt="">
+                <p>Detailed information</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Detailed Schedule Table -->
+    <div class="schedule">
+        <div class="container pt-4">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <h2 id="tests">Detailed Schedule</h2>
+
+                    <table class="table table-crossword" style="width:100%">
+
+                        <thead>
+                            <tr class='table-row'>
+                                <td>Match ID</td>
+                                <td>Team 1</td>
+                                <td>Team 2</td>
+                                <td>Time</td>
+                                <td>Match Started</td>
+                                <td>Squad</td>
+                                <td>Type</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            {% for entry in detail_schedule %}
+                                <tr class='data'>
+                                    <td>{{entry[0]}}</td>
+                                    <td>{{entry[1]}}</td>
+                                    <td>{{entry[2]}}</td>
+                                    <td>{{entry[3]}}</td>
+                                    <td>{{entry[4]}}</td>
+                                    <td>{{entry[5]}}</td>
+                                    <td>{{entry[6]}}</td>
+                                </tr>
+                            {% endfor %}
+
+                        </tbody>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="creator">
+        <h4 class="foot-creators"> &copy; Copyright 2021 ~ ESD Solutions </h4>
+    </div>
+
+    <!-- -------------------------Icons Script ----------------------------->
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    
+    <style>
+
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+        *{
+
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', 'Helvetica', sans-serif;
+        }
+
+        /* ------------------------------ Header -> Navigation --------------------------------------- */
+
+        header
+        {
+            background-color: #24252A;
+        }
+
+        li, a, button
+        {
+            font-size: 16px;
+            color: #edf0f1;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        header
+        {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 10px;
+        }
+
+        h1
+        {
+            color:rgba(76, 229, 240, 0.918);
+            margin-left: 20px;
+            cursor: pointer;
+            letter-spacing: .5px;
+        }
+
+        span
+        {
+            color: #edf0f1;
+        }
+
+        .nav_link
+        {
+            list-style: none;
+        }
+
+        .nav_link, li
+        {
+            display: inline-block;
+            padding: 0px 20px;
+            letter-spacing: 1px;
+        }
+
+        .nav_link, li, a
+        {
+            transition: all 0.3 sec ease-in 0s;
+        }
+
+        .nav_link, li, a:hover
+        {
+            color: #7fe266;
+        }
+
+        button
+        {
+            padding: 9px 25px;
+            background-color: rgba(0, 136, 169, 1);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3 sec ease-in 0s;
+        }
+
+        button:hover
+        {
+            background-color: rgba(0, 136, 169, 0.8);
+        }
+
+        
+        @keyframes fade{
+            
+            from{
+                opacity:0.4;
+            }
+
+            to{
+                opacity:1;
+            }
+        }
+
+        #slider-cricket{
+            margin:0 auto;
+            width:100%;
+            overflow:hidden;
+        }
+
+        .slides{
+            overflow:hidden;
+            animation-name:fade;
+            animation-duration:1s;
+            display:none;
+        }
+
+        #dot{
+            margin:0 auto;
+            text-align:center;
+        }
+
+        .dot{
+            display:inline-block;
+            border-radius:50%;
+            background: crimson;
+            padding:6px;
+            margin:10px 5px;
+        }
+
+        #heading{
+            display:block;
+            text-align:center;
+            font-size:2em;
+            margin:10px 0px;
+        }
+
+        .top{
+            color: green;
+        }
+
+        /* ------------------------------ Main -> Live Score --------------------------------------- */
+
+        h3
+        {
+            font-size: 25px;
+            font-weight: bold;
+            margin: 25px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .slider
+        {
+            max-width: 1280px;
+            background-color: rgba(233, 227, 227, 0.74);
+            display: flex;
+            padding: 30px 25px;
+            margin: 20px auto 20px auto;
+        }
+
+        .slider .card
+        {
+            flex: 1;
+            margin: 0 10px;
+            background: #fff;
+        }
+
+        .slider .card .img
+        {
+            height: 200px;
+            width: 100%;
+        }
+
+        .slider .card .img img
+        {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .slider .card .content
+        {
+            padding: 10px 20px;
+        }
+
+        .card .content .title
+        {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .card .content .sub-title
+        {
+            font-size: 20px;
+            font-weight: 600;
+            color: #e74c3c;
+            line-height: 20px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .card .content p
+        {
+            text-align: justify;
+            margin: 10px 0;
+        }
+
+        .card .content .btn
+        {
+            display: block;
+            text-align: left;
+            margin: 10px 0;
+        }
+
+        .card .content .btn button
+        {
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            outline: none;
+            font-size: 17px;
+            padding: 5px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .card .content .btn button:hover
+        {
+            transform: scale(0.9);
+        }
+
+        .creator
+        {
+            width: 100%;
+            text-align: center;
+            background-color: rgb(240, 217, 217);
+        }
+
+        .foot-creators
+        {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    </style>
+
+    <title>CricBuzz Clone</title>
+</head>
+<body>
+    
+        <!-- Navigation Bar -->
+        <header id='header'> 
+            <h1> 🏏 Cric<span>Mania</span></h1>
+            <nav>
+                <ul class="nav-link">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#live">Live Score</a></li>
+                    <li><a href="#upcoming">Schedule</a></li>
+                    <li><a href="{{ url_for('batting') }}">Rankings</a></li>
+                </ul>
+            </nav>
+            <a class="About-us" href="#"><button>Contact Us</button></a>
+        </header>
+
+        <div id="slider-cricket">  
+            <div class="slides">  
+                <img class = 'slider-img' src="{{url_for('static', filename = 'images/1.jpg')}}" width="100%" />
+            </div>
+                
+            <div class="slides">  
+                <img class = 'slider-img' src="{{url_for('static', filename = 'images/2.jpg')}}" width="100%" />
+            </div>
+                
+            <div class="slides">  
+                <img src="{{url_for('static', filename = 'images/3.jpg')}}" width="100%" />
+            </div> 
+                
+            <div class="slides">  
+                <img src="{{url_for('static', filename = 'images/4.jpg')}}" width="100%" />
+            </div> 
+                
+            <div class="slides">  
+                <img src="{{url_for('static', filename = 'images/6.jpg')}}" width="100%" />
+            </div>  
+                
+            <div id="dot">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+        <!-- Main  -->
+        <div class="Main" id="live">
+
+            <h3>Live Cricket Scores <span><a class='top' href="#header"><ion-icon name="caret-up-circle-sharp"></ion-icon></a></span></h3>
+            
+            <!-- Live Score -->
+            <div class="slider owl-carousel">
+            
+                {% for d in dict_ls %}
+                <div class="card">
+                    <div class="img">
+                        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="title">
+                            Live Match
+                        </div>
+                        <div class="sub-title">
+                            {{ d.description }}
+                        </div>
+                        <div class="btn">
+                            <button>View Detail Score</button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+        
+            </div>
+
+            <h3 id='upcoming'>Upcoming Matches <span><a class='top' href="#header"><ion-icon name="caret-up-circle-sharp"></ion-icon></a></span></h3>
+
+            <!-- Live Score -->
+            <div class="slider owl-carousel">
+
+                {% for s in upcoming_schedule %}
+                <div class="card">
+                    <div class="img">
+                        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="title">
+                            Upcoming Match
+                        </div>
+                        <div class="sub-title">
+                            {{ s[0] }} <br> vs <br> {{ s[1] }}
+                            <br><br>
+                            {{ s[2] }}
+                        </div>
+                        <div class="btn">
+                            <button><a href="/schedule">View Detail Schedule</a></button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+        
+        <div class="creator">
+            <h4 class="foot-creators"> &copy; Copyright 2021 ~ ESD Solutions </h4>
+        </div>
+
+        <!-- Carousel Slider -->
+        <script>
+            $(".slider").owlCarousel({
+            loop: false,
+            autoplay: false,
+            autoplayTimeout: 2000, //2000ms = 2s;
+            autoplayHoverPause: true,
+            Infinity: true,
+            });
+        </script>
+
+        <!-- Image Slider -->
+        <script>
+            var index = 0;
+            var slides = document.querySelectorAll(".slides");
+            var dot = document.querySelectorAll(".dot");
+
+            function changeSlide(){
+                if(index<0){
+                    index = slides.length-1;
+                }
+                
+                if(index>slides.length-1){
+                    index = 0;
+                }
+                
+                for(let i=0;i<slides.length;i++){
+                    slides[i].style.display = "none";
+                    dot[i].classList.remove("active");
+                }
+                
+                slides[index].style.display= "block";
+                dot[index].classList.add("active");
+                
+                index++;
+                
+                setTimeout(changeSlide,3000);
+            }
+            changeSlide();
+        </script>
+
+
+        <!-- Icons -->
+        <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+        <!-- Smooth Scroll -->
+        <script src = "{{ url_for('static', filename='js/smooth-scroll.js') }}"></script>
+        <script>
+            var scroll = new SmoothScroll('a[href*="#"]');
+        </script>
+
+    </body>
+</html>
