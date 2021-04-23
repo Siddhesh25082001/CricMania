@@ -1,6 +1,8 @@
 # CricMania
 A Flask based web app displaying live cricket scores, upcoming matches detail schedule and rankings of players and teams in all three formats namely Test, ODI, T20
 
+## View Live Demo: http://cricmania.pythonanywhere.com/
+
 ###                                             Home Page
 
 ![Home Page](https://user-images.githubusercontent.com/67231450/115118362-66abbb80-9fc0-11eb-85bc-c8e6b461ad00.png)
